@@ -1,27 +1,19 @@
-# AngularKarma
+## Pruebas Unitarias básicas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+Sección dedicada a las pruebas unitarias propiamente, son pruebas muy básicas para empezar, veremas temas como
 
-## Development server
+- Pruebas a Strings
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Números
 
-## Code scaffolding
+- Booleanos
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Arreglos
 
-## Build
+- Clases
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- Cobertura de las pruebas "LifeCycle"
 
-## Running unit tests
+## Para ver todas las ramas de este proyecto:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Ir al siguiente link `https://github.com/QuispeRosasGabriel/Clase-Angular-Test`
