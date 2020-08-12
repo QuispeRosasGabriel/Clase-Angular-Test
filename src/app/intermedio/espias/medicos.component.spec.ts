@@ -1,6 +1,7 @@
 import { MedicosComponent } from './medicos.component';
 import { MedicosService } from './medicos.service';
 import { Observable, from, EMPTY } from 'rxjs';
+import 'rxjs/add/observable/throw';
 
 // import { Observable } from 'rxjs/Observable';
 // import 'rxjs/add/observable/from';
@@ -36,5 +37,35 @@ describe('MedicosComponent', () => {
     componente.agregarMedico();
 
     expect(espia).toHaveBeenCalled();
+  });
+
+  it('debe agregar un medico al arreglo de medicos', () => {
+    const medico = { id: 1, nombre: 'Mario' };
+
+    spyOn(servicio, 'agregarMedico').and.returnValue(from([medico]));
+
+    componente.agregarMedico();
+
+    expect(componente.medicos.length).toBe(1);
+    expect(componente.medicos.indexOf).toBeGreaterThanOrEqual(0);
+  });
+
+  it('probar errores de un observable, si falla la adicion la propiedad mensajeError debe ser igual al error del servicio', () => {
+    const miError = 'No se pudo agregar el medico';
+
+    spyOn(servicio, 'agregarMedico').and.returnValue(Observable.throw(miError));
+    componente.agregarMedico();
+
+    expect(componente.mensajeError).toBe(miError);
+  });
+
+  it('debe llamar al servidor para borrar un medico incluyendo la confirmacion', () => {
+    spyOn(window, 'confirm').and.returnValue(true);
+
+    const espia = spyOn(servicio, 'borrarMedico').and.returnValue(EMPTY);
+
+    componente.borrarMedico('1');
+
+    expect(espia).toHaveBeenCalledWith('1');
   });
 });
