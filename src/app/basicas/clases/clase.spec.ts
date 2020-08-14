@@ -31,8 +31,7 @@ describe('Pruebas de clase', () => {
   });
 
   it('Debe comprobar que la constante jugador sea de tipo Jugador', () => {
-    const resp = jugador instanceof Jugador;
-    expect(resp).toBeTruthy();
-  })
+    expect(jugador).toBeInstanceOf(Jugador);
+  });
 
 });
