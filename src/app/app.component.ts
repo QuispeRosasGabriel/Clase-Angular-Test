@@ -1,10 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'angular-karma';
+export class AppComponent implements OnInit {
+  public title: string;
+
+  public ngOnInit() {
+
+    if (true) {
+      this.title = 'angular-karma';
+    }
+  }
 }
