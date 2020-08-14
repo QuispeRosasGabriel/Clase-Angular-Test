@@ -38,15 +38,18 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('angular-karma');
   });
 
-  it('should render title', () => {
-    // Preparar
-    const fixture = TestBed.createComponent(AppComponent);
+  describe('Antoher set of suites', () => {
 
-    // Actuar
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
+    it('should render title', () => {
+      // Preparar
+      const fixture = TestBed.createComponent(AppComponent);
 
-    // Afirmar
-    expect(compiled.querySelector('.content span').textContent).toContain('angular-karma app is running!');
+      // Actuar
+      fixture.detectChanges();
+      const compiled = fixture.nativeElement;
+
+      // Afirmar
+      expect(compiled.querySelector('.content span').textContent).toContain('angular-karma app is running!');
+    });
   });
 });
