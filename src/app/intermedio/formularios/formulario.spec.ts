@@ -9,21 +9,27 @@ describe('Pruebas del formulario', () => {
   it('debe crear un formulario con dos campos', () => {
     expect(formulario.form.contains('email')).toBeTruthy();
     expect(formulario.form.contains('password')).toBeTruthy();
+    expect(formulario.form).toBeDefined();
   });
 
   it('probando validaciones de campos que deben ser obligatorio', () => {
     const emailControl = formulario.form.get('email');
     const passwordControl = formulario.form.get('password');
+    const generalForm = formulario.form;
+
     emailControl.setValue('');
     passwordControl.setValue('');
 
     expect(emailControl.valid).toBeFalsy();
     expect(passwordControl.valid).toBeFalsy();
+    expect(generalForm.valid).toBeFalsy();
   });
 
   it('validando que ingrese un correo valido', () => {
     const control = formulario.form.get('email');
+
     control.setValue('gabo@gmail.com');
+    
     expect(control.valid).toBeTruthy();
   });
 });
