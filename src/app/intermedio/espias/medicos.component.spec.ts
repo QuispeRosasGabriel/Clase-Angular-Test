@@ -1,7 +1,6 @@
 import { MedicosComponent } from './medicos.component';
 import { MedicosService } from './medicos.service';
-import { Observable, from, EMPTY } from 'rxjs';
-import 'rxjs/add/observable/throw';
+import { from, EMPTY, throwError } from 'rxjs';
 
 // import { Observable } from 'rxjs/Observable';
 // import 'rxjs/add/observable/from';
@@ -18,8 +17,8 @@ describe('MedicosComponent', () => {
   it('Init: debe cargar los medicos', () => {
     const medicos = ['medico1', 'medico2', 'medico3'];
 
-    //Espia al servicio y cuando alguien llame a get medicos
-    //vas mandar la informacion de callfake
+    // Espia al servicio y cuando alguien llame a get medicos
+    // vas mandar la informacion de callfake
     spyOn(servicio, 'getMedicos').and.callFake(() => {
       return from(medicos);
     });
@@ -47,13 +46,13 @@ describe('MedicosComponent', () => {
     componente.agregarMedico();
 
     expect(componente.medicos.length).toBe(1);
-    expect(componente.medicos.indexOf).toBeGreaterThanOrEqual(0);
+    expect(componente.medicos.indexOf(medico)).toBeGreaterThanOrEqual(0);
   });
 
   it('probar errores de un observable, si falla la adicion la propiedad mensajeError debe ser igual al error del servicio', () => {
     const miError = 'No se pudo agregar el medico';
 
-    spyOn(servicio, 'agregarMedico').and.returnValue(Observable.throw(miError));
+    spyOn(servicio, 'agregarMedico').and.returnValue(throwError(miError));
     componente.agregarMedico();
 
     expect(componente.mensajeError).toBe(miError);

@@ -1,25 +1,30 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
-
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 @Injectable()
 export class MedicosService {
 
-  constructor( public http: Http ) { }
+  constructor( public http: HttpClient ) { }
 
   getMedicos() {
     return this.http.get('...')
-                .map( resp => resp['medicos'] );
+                .pipe(
+                  map( resp => resp['medicos'] )
+                );
   }
 
   agregarMedico( medico: any ) {
     return this.http.post('...', medico )
-                .map( resp => resp['medico'] );
+                .pipe(
+                  map( resp => resp['medicos'] )
+                );
   }
 
   borrarMedico( id: string ) {
     return this.http.delete('...' )
-                .map( resp => resp['medico'] );
+                .pipe(
+                  map( resp => resp['medicos'] )
+                );
   }
 
 
