@@ -12,4 +12,12 @@ describe('Puebas de numeros', () => {
     const resp = incrementar(tempNumber);
     expect(resp).toBe(51);
   });
+
+  it('Debe ingresar un número mayor o igual a 1', () => {
+    const expectedNumber = 1;
+    const tempNumber = 20;
+    const resp = incrementar(tempNumber);
+    expect(tempNumber).toBeGreaterThanOrEqual(expectedNumber);
+  });
+
 });

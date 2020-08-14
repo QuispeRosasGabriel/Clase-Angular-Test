@@ -29,4 +29,10 @@ describe('Pruebas de clase', () => {
     const resp = jugador.recibeDanio(120);
     expect(resp).toBe(100);
   });
+
+  it('Debe comprobar que la constante jugador sea de tipo Jugador', () => {
+    const resp = jugador instanceof Jugador;
+    expect(resp).toBeTruthy();
+  })
+
 });
